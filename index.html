@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>pozdro_YT</title>
+
+<style>
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #05070a;
+  color: white;
+}
+
+/* GRID BACKGROUND */
+body::before {
+  content: "";
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    linear-gradient(#0f1a22 1px, transparent 1px),
+    linear-gradient(90deg, #0f1a22 1px, transparent 1px);
+  background-size: 40px 40px;
+  z-index: -1;
+}
+
+/* NAVBAR */
+nav {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+}
+
+nav h1 {
+  color: #00ffae;
+}
+
+nav a {
+  color: #aaa;
+  text-decoration: none;
+  margin-left: 20px;
+  cursor: pointer;
+}
+
+/* HERO */
+.hero {
+  padding: 120px 20px;
+  max-width: 1000px;
+  margin: auto;
+}
+
+.hero small {
+  color: #00ffae;
+  letter-spacing: 3px;
+}
+
+.hero h2 {
+  font-size: 60px;
+  margin: 20px 0;
+  line-height: 1.1;
+}
+
+.hero span {
+  color: #00ffae;
+}
+
+.hero p {
+  color: #aaa;
+  max-width: 500px;
+}
+
+/* BUTTONS */
+.btn {
+  display: inline-block;
+  margin-top: 30px;
+  padding: 15px 30px;
+  border-radius: 40px;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.btn-primary {
+  background: #00ffae;
+  color: black;
+}
+
+.btn-secondary {
+  background: transparent;
+  border: 1px solid #333;
+  color: white;
+  margin-left: 10px;
+}
+
+.btn-primary:hover {
+  box-shadow: 0 0 20px #00ffae;
+}
+
+/* SECTIONS */
+.section {
+  padding: 100px 20px;
+  text-align: center;
+}
+
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.card {
+  background: #0f141a;
+  padding: 30px;
+  border-radius: 20px;
+  max-width: 260px;
+  border: 1px solid #1c2a33;
+  transition: 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 0 20px #00ffae33;
+}
+
+.card h3 {
+  color: #00ffae;
+  font-size: 20px;
+}
+
+/* PROJECTS */
+.project {
+  background: #0f141a;
+  padding: 30px;
+  border-radius: 20px;
+  max-width: 400px;
+  margin: 20px auto;
+  border: 1px solid #1c2a33;
+}
+
+.download {
+  margin-top: 15px;
+  padding: 10px 20px;
+  border-radius: 20px;
+  background: orange;
+  border: none;
+  cursor: pointer;
+}
+
+/* FOOTER */
+footer {
+  padding: 40px;
+  text-align: center;
+  color: #777;
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+  <h1>pozdro_YT</h1>
+  <div>
+    <a onclick="scrollToSection('skills')">Co potrafię</a>
+    <a onclick="scrollToSection('projekty')">Projekty</a>
+    <a onclick="scrollToSection('kontakt')">Kontakt</a>
+  </div>
+</nav>
+
+<section class="hero">
+  <small>TWÓRCA SERWERÓW & SKRYPTÓW</small>
+
+  <h2>
+    TWORZĘ <br>
+    SERWERY I <br>
+    <span>SKRYPTY.</span>
+  </h2>
+
+  <p>
+    Zajmuję się Minecraftem, Discordem oraz automatyzacją systemów.
+  </p>
+
+  <button class="btn btn-primary" onclick="scrollToSection('skills')">
+    CO POTRAFIĘ
+  </button>
+
+  <button class="btn btn-secondary" onclick="scrollToSection('kontakt')">
+    KONTAKT
+  </button>
+</section>
+
+<!-- CO POTRAFIĘ -->
+<section id="skills" class="section">
+  <h2>Co potrafię</h2>
+
+  <div class="cards">
+
+    <div class="card">
+      <h3>Skrypty</h3>
+      <p>Tworzenie skryptów do Minecraft i Discord.</p>
+    </div>
+
+    <div class="card">
+      <h3>Serwery Minecraft</h3>
+      <p>Tworzenie i konfiguracja serwerów.</p>
+    </div>
+
+    <div class="card">
+      <h3>Serwery Discord</h3>
+      <p>Boty, moderacja i systemy.</p>
+    </div>
+
+    <div class="card">
+      <h3>Pluginy</h3>
+      <p>Instalacja i naprawa pluginów.</p>
+    </div>
+
+    <div class="card">
+      <h3>Pomoc techniczna</h3>
+      <p>Naprawa błędów i wsparcie.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- STATYSTYKI -->
+<section class="section">
+  <div class="cards">
+    <div class="card">
+      <h3>3+</h3>
+      <p>Lata doświadczenia</p>
+    </div>
+
+    <div class="card">
+      <h3>10+</h3>
+      <p>Projektów</p>
+    </div>
+
+    <div class="card">
+      <h3>100%</h3>
+      <p>Zaangażowania</p>
+    </div>
+  </div>
+</section>
+
+<!-- PROJEKTY -->
+<section id="projekty" class="section">
+  <h2>Projekty</h2>
+
+  <div class="project">
+    <h3>Serwery Minecraft</h3>
+    <p>Konfigurufe serwery minecraft</p>
+    <button class="download">Zobacz</button>
+  </div>
+
+  <div class="project">
+    <h3>Serwery Discord</h3>
+    <p>Tworze serwery Discord</p>
+    <button class="download">Zobacz</button>
+  </div>
+</section>
+
+<!-- KONTAKT -->
+<section id="kontakt" class="section">
+  <h2>Kontakt</h2>
+  <p>Email: pozdroyt81@gmail.com</p>
+  <p>Discord: 5_MCkolaj_5#2946</p>
+  <p>Youtube: @pozdro_YT</p>
+</section>
+
+<footer>
+  © 2026 pozdro_YT
+</footer>
+
+<script>
+function scrollToSection(id) {
+  document.getElementById(id).scrollIntoView({
+    behavior: "smooth"
+  });
+}
+</script>
+
+</body>
+</html>
