@@ -17,7 +17,6 @@ body {
   color: white;
 }
 
-/* GRID BACKGROUND */
 body::before {
   content: "";
   position: fixed;
@@ -30,25 +29,43 @@ body::before {
   z-index: -1;
 }
 
-/* NAVBAR */
 nav {
   display: flex;
   justify-content: space-between;
   padding: 20px;
+  align-items: flex-start;
 }
 
 nav h1 {
   color: #00ffae;
 }
 
+nav .right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 10px;
+}
+
+nav .links {
+  display: flex;
+  gap: 20px;
+}
+
 nav a {
   color: #aaa;
   text-decoration: none;
-  margin-left: 20px;
   cursor: pointer;
 }
 
-/* HERO */
+.views {
+  color: #00ffae;
+  font-size: 14px;
+  border: 1px solid #1c2a33;
+  padding: 6px 12px;
+  border-radius: 20px;
+}
+
 .hero {
   padding: 120px 20px;
   max-width: 1000px;
@@ -75,7 +92,6 @@ nav a {
   max-width: 500px;
 }
 
-/* BUTTONS */
 .btn {
   display: inline-block;
   margin-top: 30px;
@@ -103,7 +119,6 @@ nav a {
   box-shadow: 0 0 20px #00ffae;
 }
 
-/* SECTIONS */
 .section {
   padding: 100px 20px;
   text-align: center;
@@ -135,7 +150,6 @@ nav a {
   font-size: 20px;
 }
 
-/* PROJECTS */
 .project {
   background: #0f141a;
   padding: 30px;
@@ -154,7 +168,6 @@ nav a {
   cursor: pointer;
 }
 
-/* FOOTER */
 footer {
   padding: 40px;
   text-align: center;
@@ -167,10 +180,17 @@ footer {
 
 <nav>
   <h1>pozdro_YT</h1>
-  <div>
-    <a onclick="scrollToSection('skills')">Co potrafię</a>
-    <a onclick="scrollToSection('projekty')">Projekty</a>
-    <a onclick="scrollToSection('kontakt')">Kontakt</a>
+  
+  <div class="right">
+    <div class="links">
+      <a onclick="scrollToSection('skills')">Co potrafię</a>
+      <a onclick="scrollToSection('projekty')">Projekty</a>
+      <a onclick="scrollToSection('kontakt')">Kontakt</a>
+    </div>
+
+    <div class="views">
+      Wyświetlenia: <span id="views">0</span>
+    </div>
   </div>
 </nav>
 
@@ -196,64 +216,27 @@ footer {
   </button>
 </section>
 
-<!-- CO POTRAFIĘ -->
 <section id="skills" class="section">
   <h2>Co potrafię</h2>
-
   <div class="cards">
-
-    <div class="card">
-      <h3>Skrypty</h3>
-      <p>Tworzenie skryptów do Minecraft i Discord.</p>
-    </div>
-
-    <div class="card">
-      <h3>Serwery Minecraft</h3>
-      <p>Tworzenie i konfiguracja serwerów.</p>
-    </div>
-
-    <div class="card">
-      <h3>Serwery Discord</h3>
-      <p>Boty, moderacja i systemy.</p>
-    </div>
-
-    <div class="card">
-      <h3>Pluginy</h3>
-      <p>Instalacja i naprawa pluginów.</p>
-    </div>
-
-    <div class="card">
-      <h3>Pomoc techniczna</h3>
-      <p>Naprawa błędów i wsparcie.</p>
-    </div>
-
+    <div class="card"><h3>Skrypty</h3><p>Tworzenie skryptów do Minecraft i Discord.</p></div>
+    <div class="card"><h3>Serwery Minecraft</h3><p>Tworzenie i konfiguracja serwerów.</p></div>
+    <div class="card"><h3>Serwery Discord</h3><p>Boty, moderacja i systemy.</p></div>
+    <div class="card"><h3>Pluginy</h3><p>Instalacja i naprawa pluginów.</p></div>
+    <div class="card"><h3>Pomoc techniczna</h3><p>Naprawa błędów i wsparcie.</p></div>
   </div>
 </section>
 
-<!-- STATYSTYKI -->
 <section class="section">
   <div class="cards">
-    <div class="card">
-      <h3>4+</h3>
-      <p>Lat doświadczenia</p>
-    </div>
-
-    <div class="card">
-      <h3>5+</h3>
-      <p>Projektów</p>
-    </div>
-
-    <div class="card">
-      <h3>3</h3>
-      <p>zadowolone osoby</p>
-    </div>
+    <div class="card"><h3>4+</h3><p>Lat doświadczenia</p></div>
+    <div class="card"><h3>5+</h3><p>Projektów</p></div>
+    <div class="card"><h3>3</h3><p>zadowolone osoby</p></div>
   </div>
 </section>
 
-<!-- PROJEKTY -->
 <section id="projekty" class="section">
   <h2>Projekty</h2>
-
   <div class="project">
     <h3>Serwery Minecraft</h3>
     <p>Konfigurufe serwery minecraft</p>
@@ -267,7 +250,6 @@ footer {
   </div>
 </section>
 
-<!-- KONTAKT -->
 <section id="kontakt" class="section">
   <h2>Kontakt</h2>
   <p>Email: pozdroyt81@gmail.com</p>
@@ -281,10 +263,14 @@ footer {
 
 <script>
 function scrollToSection(id) {
-  document.getElementById(id).scrollIntoView({
-    behavior: "smooth"
-  });
+  document.getElementById(id).scrollIntoView({ behavior: "smooth" });
 }
+
+let views = localStorage.getItem("views");
+if (!views) views = 0;
+views = parseInt(views) + 1;
+localStorage.setItem("views", views);
+document.getElementById("views").innerText = views;
 </script>
 
 </body>
